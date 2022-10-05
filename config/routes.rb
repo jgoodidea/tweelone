@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :tweets, except: [:index]
 
   get "home", to: "tweets#index"
-  
-  resources :users, except: [:new]
+
+  resources :users, except: [:index, :new]
 
   get 'signup', to: 'users#new'
   

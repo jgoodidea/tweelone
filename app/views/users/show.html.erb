@@ -1,9 +1,21 @@
-<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+<div>
+    <h2>
+        <%= link_to home_path do %>
+            <i class="bi-arrow-left"></i>
+        <% end %>
+        <%= @user.username %>
+    </h2>
+</div>
+
 <div class="row">
-    <div class="col-md-4 offset-md-4 center">
-        <%= gravatar_for @user, size: 150 %>
+    <div class="avatar col">
+        <%= gravatar_for @user, size: 120, class: "rounded-circle" %>
+    </div>
+    <div class="col text-end">
+        <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-secondary" %>
     </div>
 </div>
-<h4 align="center"><%= @user.username %>'s tweets</h4>
 
-<%= render 'shared/article', obj: @user.tweets %>
+<hr />
+
+<%= render 'shared/tweet', obj: @user.tweets %>

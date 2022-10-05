@@ -1,10 +1,10 @@
-<h1>Editing tweet</h1>
+<div>
+    <h2>
+        <%= link_to tweet_path(@tweet) do %>
+            <i class="bi-arrow-left"></i>
+        <% end %>
+        Editing tweet
+    </h2>
+</div>
 
 <%= render "form", tweet: @tweet %>
-
-<br>
-
-<div>
-  <%= link_to "Show this tweet", @tweet %> |
-  <%= link_to "Back to tweets", tweets_path %>
-</div>

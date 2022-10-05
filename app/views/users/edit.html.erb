@@ -1,1 +1,10 @@
-<h1>User Edit</h1>
+<div>
+    <h2>
+        <%= link_to user_path(@user) do %>
+            <i class="bi-arrow-left"></i>
+        <% end %>
+        Update profile
+    </h2>
+</div>
+
+<%= render 'form' %>
