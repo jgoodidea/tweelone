@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container d-flex">
+      <%= render 'layouts/navigation' if logged_in? %>
+      <div class="main px-sm-2 px-0 w-100">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

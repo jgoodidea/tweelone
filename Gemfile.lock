@@ -68,9 +68,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
+    bson (4.15.0)
     builder (3.2.4)
     capybara (3.37.1)
       addressable
@@ -112,6 +114,12 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
+    mongo (2.18.1)
+      bson (>= 4.14.1, < 5.0.0)
+    mongoid (8.0.2)
+      activemodel (>= 5.1, < 7.1, != 7.0.0)
+      mongo (>= 2.18.0, < 3.0.0)
+      ruby2_keywords (~> 0.0.5)
     msgpack (1.6.0)
     net-imap (0.3.1)
       net-protocol
@@ -162,6 +170,7 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.5.0)
       childprocess (>= 0.5, < 5.0)
@@ -207,12 +216,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt
   bootsnap
   capybara
   cssbundling-rails
   debug
   jbuilder
   jsbundling-rails
+  mongoid (~> 8.0.0)
   puma (~> 5.0)
   rails (~> 7.0.4)
   selenium-webdriver
