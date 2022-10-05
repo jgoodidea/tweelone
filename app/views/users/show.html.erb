@@ -12,7 +12,7 @@
         <%= gravatar_for @user, size: 120, class: "rounded-circle" %>
     </div>
     <div class="col text-end">
-        <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-secondary" %>
+        <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-secondary" if @user == current_user %>
     </div>
 </div>
 
