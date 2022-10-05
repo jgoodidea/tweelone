@@ -1,3 +1,12 @@
+<div>
+    <h2>
+        <%= link_to root_path do %>
+            <i class="bi-arrow-left"></i>
+        <% end %>
+        Sign In
+    </h2>
+</div>
+
 <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
     <div class="form-group row">
         <div class="control-label col-sm-2">
