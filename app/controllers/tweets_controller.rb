@@ -53,7 +53,7 @@ class TweetsController < ApplicationController
     @tweet.destroy
 
     respond_to do |format|
-      format.html { redirect_to tweets_url, notice: "Tweet was successfully destroyed." }
+      format.html { redirect_to home_url, notice: "Tweet was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -62,6 +62,7 @@ class TweetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
       @tweet = Tweet.find(params[:id])
+      @tweet[:liked] = current_user.id.in?@tweet.votes_for.map { |vote| vote.voter_id}
     end
 
     # Only allow a list of trusted parameters through.

@@ -17,9 +17,19 @@
                 <ul class="nav justify-content-around">
                     <li class="nav-item">
                         <% if tweet.user == current_user %>
-                            <a class="nav-link disabled">Like</a>
+                            <a class="nav-link disabled">
+                                <%= tweet.votes_for.count %> <span><i class="fs-6 bi-heart"></i></span>
+                            </a>
                         <% else %>
-                            <a class="nav-link">Like</a>
+                            <% if tweet[:liked] %>
+                                <%= button_to vote_path(tweet), method: :delete, data: { confirm: "are you sure you want to delete this tweet?"} do %>
+                                    <%= tweet.votes_for.count %> <span><i class="fs-6 bi-heart-fill"></i></span>
+                                <% end %>
+                            <% else %>
+                                <%= button_to votes_path(tweet) do %>
+                                    <%= tweet.votes_for.count %> <span><i class="fs-6 bi-heart"></i></span>
+                                <% end %>
+                            <% end %>
                         <% end %>
                     </li>
                     <li class="nav-item">
