@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  # post 'vote', to: 'votes#create'
+  # delete 'unvote', to: 'votes#destroy'
+  resources :votes, only: [:create, :destroy]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
