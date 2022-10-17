@@ -1,4 +1,7 @@
 class VotesController < ApplicationController
+    def index
+        create()
+    end
     def create
         @vote = Vote.new()
         @vote.voter = current_user

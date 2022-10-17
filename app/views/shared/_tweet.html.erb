@@ -23,11 +23,11 @@
                                 </a>
                             <% else %>
                                 <% if current_user.id.in? tweet.votes_for.map { |vote| vote.voter_id} %>
-                                    <%= button_to vote_path(tweet), method: :delete, data: { confirm: "are you sure you want to delete this tweet?"} do %>
+                                    <%= link_to vote_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to unvote this tweet?" }, class: "nav-link" do %>
                                         <%= tweet.votes_for.count %> <span><i class="fs-6 bi-heart-fill"></i></span>
                                     <% end %>
                                 <% else %>
-                                    <%= button_to votes_path(tweet) do %>
+                                    <%= link_to votes_path(tweet), method: :post, class: "nav-link" do %>
                                         <%= tweet.votes_for.count %> <span><i class="fs-6 bi-heart"></i></span>
                                     <% end %>
                                 <% end %>
@@ -42,7 +42,7 @@
                         </li>
                         <li class="nav-item">
                             <% if tweet.user == current_user %>
-                                <%= button_to "Delete", tweet_path(tweet), method: :delete, data: { confirm: "are you sure you want to delete this tweet?"}, class: "nav-link" %>
+                                <%= link_to "Delete", tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this tweet?"}, class: "nav-link" %>
                             <% else %>
                                 <a class="nav-link disabled">Delete</a>
                             <% end %>
